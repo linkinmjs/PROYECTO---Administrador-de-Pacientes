@@ -17,16 +17,32 @@ const Formulario = () => {
         actualizarCita({
             ...cita,
             [e.target.name]: e.target.value
-
         })
     }
     const { mascota, propietario, fecha, hora, sintomas} = cita;
+
+    // Cuando el usuario presione "agregar cita"
+    const submitCita = e => {
+        e.preventDefault();
+
+        //validar
+
+        // asignar un ID
+
+        // crear una cita
+
+        //reinciar el form
+
+        console.log('enviando Form');
+    }
 
     return(
         <Fragment>
             <h2>Crear Cita</h2>
 
-            <form>
+            <form
+                onSubmit={submitCita}
+            >
                 <label>Nombre de la Mascota</label>
                 <input 
                     type="text"
