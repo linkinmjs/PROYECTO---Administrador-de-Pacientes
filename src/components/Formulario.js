@@ -13,9 +13,14 @@ const Formulario = () => {
     })
 
     // función que se ejecuta cada vez que el usuario escribe en el input
-    const actualizarState= () => {
-        console.log('escribiendo...');
+    const actualizarState= e => {
+        actualizarCita({
+            ...cita,
+            [e.target.name]: e.target.value
+
+        })
     }
+    const { mascota, propietario, fecha, hora, sintomas} = cita;
 
     return(
         <Fragment>
@@ -25,10 +30,11 @@ const Formulario = () => {
                 <label>Nombre de la Mascota</label>
                 <input 
                     type="text"
-                    name="Mascota"
+                    name="mascota"
                     className="u-full-width"
                     placeholder="Nombre Mascota"
                     onChange={actualizarState} //o handleChange
+                    value={mascota}
                 />
                 <label>Dueño de la Mascota</label>
                 <input 
@@ -37,6 +43,7 @@ const Formulario = () => {
                     className="u-full-width"
                     placeholder="Nombre del dueño de la Mascota"
                     onChange={actualizarState} //o handleChange
+                    value={propietario}
                 />
                 <label>fecha</label>
                 <input 
@@ -44,6 +51,7 @@ const Formulario = () => {
                     name="fecha"
                     className="u-full-width"
                     onChange={actualizarState} //o handleChange
+                    value={fecha}
                 />
                 <label>Hora</label>
                 <input 
@@ -51,12 +59,14 @@ const Formulario = () => {
                     name="hora"
                     className="u-full-width"
                     onChange={actualizarState} //o handleChange
+                    value={hora}
                 />
                 <label>Síntomas</label>
                 <textarea
                     name="sintomas"
                     className="u-full-width"
                     onChange={actualizarState} //o handleChange
+                    value={sintomas}
                 ></textarea>
 
                 <button
